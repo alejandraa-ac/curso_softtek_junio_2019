@@ -1,0 +1,96 @@
+/*****************************************************************************************************************************************
+ * 
+ *Implement the ensure function so that it throws an error if called without arguments or
+  the argument is undefined. Otherwise it should return the given value.
+ */
+
+function ensure(value) {
+
+    if(value === undefined){
+      
+       throw new Error("No hay argumentos");
+      
+    }else{
+      
+      return value;
+      
+    }
+     
+    
+}
+
+/*****************************************************************************************************************************************
+ * Write a function that converts user entered date formatted as M/D/YYYY to a format required by an API (YYYYMMDD). The parameter "userDate" and the return value are strings.
+    For example, it should convert user entered date "12/31/2014" to "20141231" suitable for the API.
+ */
+
+function formatDate(userDate) {
+    // format from M/D/YYYY to YYYYMMDD
+  
+      valor = userDate.split("/");
+    
+      day = valor[1];
+      month = valor[0];
+      year = valor[2];
+    
+      if(day.length==1){
+          day = "0" +day;
+      }
+    
+      if(month.length==1){
+          month = "0" + month;
+      } 
+      
+    
+  
+   return year + month + day;
+}
+  
+  console.log(formatDate("12/01/2014"));
+
+
+
+
+/*****************************************************************************************************************************************
+ Implement the removeProperty function which takes an object and property name, and does the following:
+
+If the object obj has a property prop, the function removes the property from the object and returns true; in all other cases it returns false.
+ */
+
+function removeProperty(obj, prop) {
+  
+    if(obj.hasOwnProperty(prop)){
+        delete obj[prop]
+
+        return true;
+    }
+    
+    return false;
+}
+
+
+/*****************************************************************************************************************************************
+ * Fix the bugs in the registerHandlers function. An alert should display anchor's zero-based index within a document instead of following the link.
+
+For example, in the document below, the alert should display "2" when Google anchor is clicked since it is the third anchor element in the document and its zero-based index is 2.
+ */
+
+function registerHandlers() {
+    var as = document.getElementsByTagName('a');
+    for (let i = 0; i < as.length; i++) {
+       as[i].onclick = function() {
+        alert(i);
+        return false;
+      }
+    }
+  }
+  
+  /* HTML code for testing purposes (do not submit uncommented):
+  <body>
+    In my life, I used the following web search engines:<br/>
+    <a href="//www.yahoo.com">Yahoo!</a><br/>
+    <a href="//www.altavista.com">AltaVista</a><br/>
+    <a href="//www.google.com">Google</a><br/>
+  </body>
+  */
+
